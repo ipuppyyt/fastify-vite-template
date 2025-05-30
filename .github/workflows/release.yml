@@ -35,14 +35,14 @@ jobs:
           git tag -a ${{ env.NEXT_VERSION }} -m "Release ${{ env.NEXT_VERSION }}"
 
       - name: Zip repository
-        run: zip -r repo.zip .
+        run: zip -r fastify+react-ts.zip .
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
         with:
           tag_name: ${{ env.NEXT_VERSION }}
           name: Release ${{ env.NEXT_VERSION }}
-          files: repo.zip
+          files: fastify+react-ts.zip
           generate_release_notes: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
