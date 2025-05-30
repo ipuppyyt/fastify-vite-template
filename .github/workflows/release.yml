@@ -34,8 +34,8 @@ jobs:
           git config --local user.name "GitHub Action"
           git tag -a ${{ env.NEXT_VERSION }} -m "Release ${{ env.NEXT_VERSION }}"
 
-      - name: Zip repository
-        run: zip -r fastify+react-ts.zip .
+      - name: Zip repository (excluding .git and .github)
+        run: zip -r fastify+react-ts.zip . -x "*.git*" -x "*.github*"
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
